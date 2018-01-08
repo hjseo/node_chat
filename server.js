@@ -17,8 +17,6 @@ function registerUser(socket, nickname){
     socket.nickname = nickname;
     rooms[socket.room].socket_ids[nickname] = socket.id
     io.in(socket.room).emit('userlist',{users:Object.keys(rooms[socket.room].socket_ids)});
-
-    console.log(rooms);
 }
 
 function deleteUser(socket){
